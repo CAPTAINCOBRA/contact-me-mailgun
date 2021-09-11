@@ -1,5 +1,5 @@
 {
-  "name": "nodemailer-mailGun",
+  "name": "mailgun-contact-me-app",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
