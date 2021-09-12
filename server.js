@@ -31,7 +31,8 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "views", "index.html"));
 });
 
-const PORT = 8080;
-app.listen(PORT, () => {
+const PORTE = 8080;
+const PORT = process.env.PORT;
+app.listen(PORT || PORTE, () => {
   log("Server is running on port - ", PORT);
 });
