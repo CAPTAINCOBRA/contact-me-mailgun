@@ -20,12 +20,15 @@ const sendMail = (email, subject, text, cb) => {
     text: text,
   };
 
+  console.log("The mail options are - " + mailOptions);
+
   transporter.sendMail(mailOptions, (err, data) => {
     if (err) {
-      //   log("'Error occurs");
+      log("'Error occurs");
+      log(err);
       cb(err, null);
     } else {
-      //   log("Message Sent!");
+      log("Message Sent!");
       cb(null, data);
     }
   });
