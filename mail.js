@@ -12,7 +12,7 @@ const auth = {
 
 const transporter = nodemailer.createTransport(mailgun(auth));
 
-const sendMail = (email, subject, text, cb) => {
+const sendMail = async (email, subject, text, cb) => {
   const mailOptions = {
     from: email,
     to: process.env.TO,
@@ -21,8 +21,9 @@ const sendMail = (email, subject, text, cb) => {
   };
 
   console.log("The mail options are - " + mailOptions);
+  console.log(mailOptions);
 
-  transporter.sendMail(mailOptions, (err, data) => {
+  await transporter.sendMail(mailOptions, (err, data) => {
     if (err) {
       log("'Error occurs");
       log(err);
