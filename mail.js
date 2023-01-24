@@ -20,13 +20,11 @@ const sendMail = async (email, subject, text, cb) => {
     text: text,
   };
 
-  console.log("The mail options are - " + mailOptions);
   console.log(mailOptions);
 
   await transporter.sendMail(mailOptions, (err, data) => {
     if (err) {
-      log("'Error occurs");
-      log(err);
+      log("'Error occurs" + err);
       cb(err, null);
     } else {
       log("Message Sent!");
@@ -34,9 +32,5 @@ const sendMail = async (email, subject, text, cb) => {
     }
   });
 };
-
-//Used cb in order to use function like sendMail('','','',function(err, data){
-//
-// })
 
 module.exports = sendMail;

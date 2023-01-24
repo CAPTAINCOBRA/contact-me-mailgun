@@ -13,9 +13,7 @@ app.use(express.json());
 app.post("/email", (req, res) => {
   log("Data: ", req.body);
   const { email, subject, text } = req.body;
-  log("Lol1", email);
-  log("Lol2", subject);
-  log("Lol3", text);
+  log("Email - " + email + " Subject - " + subject + " Text - " + text);
   sendMail(email, subject, text, function (err, data) {
     if (err) {
       res.status(500).json({ message: "Internal error!" });
@@ -23,11 +21,9 @@ app.post("/email", (req, res) => {
       res.json({ message: "Message recieved!!!" });
     }
   });
-  //   res.json({ message: "Message recieved!!!" });
 });
 
 app.get("/", (req, res) => {
-  //   res.send("Welcome!");
   res.sendFile(path.join(__dirname, "views", "index.html"));
 });
 
